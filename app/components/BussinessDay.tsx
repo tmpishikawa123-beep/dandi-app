@@ -7,39 +7,48 @@ interface BussinessDayProps {
 }
 
 const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) => {
-  // カレンダーの日付（例）
   const days = ['日', '月', '火', '水', '木', '金', '土'];
   
   return (
-    <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} h-full w-full`}>
-      {/* 左側：画像セクション */}
-      <div className="flex-1 h-1/2 md:h-full relative bg-gray-200">
-        <img src={imageUrl} alt={title} className="w-full h-full object-cover" />
+    // 全体を画面の高さ一杯（h-svh）に固定し、溢れた場合はスクロール可能に
+    <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} h-screen w-full bg-white overflow-hidden`}>
+      
+      {/* 左側：画像セクション - スマホでは高さを抑える（30%程度） */}
+      <div className="w-full h-[30vh] md:h-full md:flex-1 relative bg-gray-200">
+        <img 
+          src={imageUrl} 
+          alt={title} 
+          className="w-full h-full object-cover" 
+        />
       </div>
 
-      {/* 右側：コンテンツセクション */}
-      <div className="flex-1 h-1/2 md:h-full flex flex-col justify-center items-center p-4 sm:p-6 md:p-8 bg-white overflow-hidden">
-        <h2 className="text-lg sm:text-xl md:text-2xl font-serif mb-4 sm:mb-6 px-4 text-center text-gray-500">{title}</h2>
+      {/* 右側：コンテンツセクション - 内部をスクロール可能にしつつ、paddingを圧縮 */}
+      <div className="w-full h-[70vh] md:h-full md:flex-1 flex flex-col justify-start md:justify-center items-center p-4 sm:p-6 md:p-10 bg-white overflow-y-auto">
         
-        {/* カレンダー本体 */}
-        <div className="w-full max-w-md border border-gray-200 rounded-lg overflow-hidden shadow-sm">
-          <div className="grid grid-cols-7 bg-gray-50 border-b border-gray-200">
+        {/* タイトル：余白を最小限に */}
+        <h2 className="text-lg sm:text-2xl font-serif mb-3 md:mb-6 text-center text-gray-600 tracking-wide">
+          {title}
+        </h2>
+        
+        {/* カレンダー本体：高さを抑える */}
+        <div className="w-full max-w-sm border border-gray-100 rounded-xl overflow-hidden shadow-sm">
+          <div className="grid grid-cols-7 bg-gray-50/50 border-b border-gray-100">
             {days.map((day) => (
-              <div key={day} className="py-2 text-center text-xs font-bold text-gray-500 uppercase">
+              <div key={day} className="py-1.5 md:py-2.5 text-center text-[10px] font-bold text-gray-400 uppercase tracking-tighter">
                 {day}
               </div>
             ))}
           </div>
-          <div className="grid grid-cols-7 min-h-[120px] sm:min-h-[150px]">
+          <div className="grid grid-cols-7">
             {[...Array(7)].map((_, i) => (
               <div 
                 key={i} 
-                className={`flex items-center justify-center border-r border-b border-gray-100 p-1 sm:p-2 last:border-r-0 ${
-                  i === 0 ? 'bg-red-50/30' : i === 6 ? 'bg-blue-50/30' : ''
+                className={`flex items-center justify-center border-r border-b border-gray-50 py-2 md:p-2 last:border-r-0 ${
+                  i === 0 ? 'bg-red-50/20' : i === 6 ? 'bg-blue-50/20' : ''
                 }`}
               >
-                <span className={`text-sm font-medium ${i === 2 ? 'text-gray-400' : 'text-gray-700'}`}>
-                  {i !== 2 ? "〇" : "×"}
+                <span className={`text-sm font-medium ${i === 2 ? 'text-gray-300' : 'text-gray-600'}`}>
+                  {i !== 2 ? "○" : "×"}
                 </span>
               </div>
             ))}
@@ -47,29 +56,32 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
         </div>
 
         {/* 営業時間セクション */}
-        <div className="mt-6 text-center">
-          <p className="text-[10px] text-gray-400 tracking-widest uppercase mb-1">Business Hours</p>
-          <p className="text-lg sm:text-xl font-serif text-gray-800">11:00 — 16:00</p>
+        <div className="mt-4 md:mt-8 text-center  text-justify">
+          <p className="text-[6px] md:text-[9px] text-gray-400 tracking-[0.2em] uppercase">営業時間</p>
+          <p className="text-[10px] md:text-[14px] font-serif text-gray-800 tracking-widest">ランチ 11:00 — 14:30</p>
+          <p className="text-[10px] md:text-[14px] font-serif text-gray-800 tracking-widest">カフェ 14:00 — 16:00(土、日、祝のみ)</p>
+          <p className="text-[4px] md:text-[8px] font-serif text-gray-400 tracking-widest">ラストオーダー 15:30</p>
         </div>
 
-        {/* 予約セクション：ここから追加 */}
-        <div className="mt-8 pt-6 border-t border-gray-100 w-full max-w-md text-center">
-          <h3 className="text-sm font-bold text-gray-500 mb-3 tracking-widest">ご予約について</h3>
-          <p className="text-xs sm:text-sm text-gray-700 mb-4 leading-relaxed px-2">
-            様々なシーンのお手伝いが出来ます、ご相談くださいませ！
+        <div className="mt-4 pt-4 md:mt-8 md:pt-8 border-t border-gray-100 w-full max-w-sm text-center ">
+          <p className="text-[11px] sm:text-sm text-gray-600 mb-4 leading-relaxed">
+            様々なシーンのお手伝いが出来ます。<br className="hidden sm:block" />
+            お気軽にご相談ください。
           </p>
           
-          <div className="space-y-1 mb-6">
-            <p className="text-sm sm:text-base font-serif text-gray-800">Tel: 00-0000-0000</p>
-            <p className="text-xs sm:text-sm text-gray-600">Email: info@example.com</p>
+          <div className="space-y-1 md:space-y-2 mb-4 md:mb-8">
+            <p className="text-[11px] text-gray-500">栃木県芳賀郡益子町上大羽393</p>
+            <a href="tel:0285-70-6124" className="block text-[11px] font-serif text-gray-800 hover:opacity-70 transition-opacity">
+              Tel: 0285-70-6124
+            </a>
+            <p className="text-[11px] text-gray-500">Email: dandi@gmail.com</p>
           </div>
 
-          <div className="space-y-1">
-            <p className="text-[10px] text-gray-400">※無断キャンセルはご遠慮ください</p>
-            <p className="text-[10px] text-gray-400">※貸切の場合は、前払いをお願いしています</p>
+          <div className="space-y-0.5 opacity-60">
+            <p className="text-[8px] text-gray-400">※無断キャンセルはご遠慮ください</p>
+            <p className="text-[8px] text-gray-400">※貸切の場合は、前払いをお願いしています</p>
           </div>
         </div>
-        {/* ここまで */}
         
       </div>
     </div>
