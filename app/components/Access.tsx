@@ -3,8 +3,8 @@
 const Access = () => {
   return (
     <div className="h-full w-full flex flex-col p-4 md:p-10 bg-stone-50">
-      <h2 className="text-2xl font-serif text-center mb-6 text-gray-500">アクセス & イベント情報</h2>
-      <div className="flex flex-col md:flex-row gap-6 h-full overflow-hidden">
+      <h2 className="text-sm sm:text-2xl font-serif text-center mb-2 text-gray-500">アクセス & イベント情報</h2>
+      <div className="flex flex-col md:flex-row gap-2 h-full overflow-hidden">
         {/* Google Map 埋め込み */}
         <div className="flex-1 rounded-lg overflow-hidden shadow-md">
           <iframe 

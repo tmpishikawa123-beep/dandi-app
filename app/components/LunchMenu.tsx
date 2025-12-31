@@ -33,7 +33,7 @@ const LunchMenu = ({ title }: { title: string }) => {
   ];
 
   return (
-    <div className="w-full mx-auto min-h-screen flex flex-col justify-center px-4 py-2 font-sans text-gray-800 bg-white">
+    <div className="w-full mx-auto min-h-[100dvh] flex flex-col justify-center px-4 py-2 font-sans text-gray-800 bg-white">
       
       <section className="mb-6">
         <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-center mb-6 tracking-widest text-gray-500">
@@ -45,17 +45,17 @@ const LunchMenu = ({ title }: { title: string }) => {
             <div 
               key={i} 
               className="flex flex-col bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden cursor-pointer hover:opacity-90 transition"
-              onClick={() => setSelectedItem(item)} // クリックでモーダル表示
+              onClick={() => setSelectedItem(item)} 
             >
-              <div className="relative h-32 sm:h-24 w-full bg-gray-50">
+              <div className="relative h-15 sm:h-24 w-full bg-gray-50">
                 <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
               </div>
               <div className="p-2">
                 <div className="flex justify-between items-center mb-1">
-                  <h3 className="font-bold text-[7px] sm:text-xs truncate text-gray-800">{item.name}</h3>
-                  <span className="text-gray-600 text-[7px] sm:text-[11px] font-serif">{item.price}</span>
+                  <h3 className="font-bold text-[8px] sm:text-xs truncate text-gray-800">{item.name}</h3>
+                  <span className="text-gray-600 text-[6px] sm:text-[11px] font-serif">{item.price}</span>
                 </div>
-                <p className="text-[7px] sm:text-[10px] text-gray-400 leading-tight line-clamp-1">{item.detail}</p>
+                <p className="text-[8px] sm:text-[13px] text-gray-400 leading-tight line-clamp-1">{item.detail}</p>
               </div>
             </div>
           ))}
