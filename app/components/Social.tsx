@@ -26,7 +26,6 @@ const Social = () => {
             rel="noopener noreferrer"
             className="group flex flex-col  items-center p-8 bg-white border border-stone-200 rounded-sm transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
           >
-            {/* アイコンのプレースホルダー */}
             <div className="w-12 h-12 mb-4 bg-stone-200 rounded-full flex items-center justify-center group-hover:bg-stone-800 group-hover:text-white transition-colors">
               <InstagramIcon />
             </div>

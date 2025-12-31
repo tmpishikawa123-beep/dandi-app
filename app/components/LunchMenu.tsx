@@ -28,7 +28,6 @@ const LunchMenu = ({ title }: { title: string }) => {
   return (
     <div className="w-full mx-auto h-screen flex flex-col justify-center px-4 py-2 font-sans text-gray-800 bg-white overflow-hidden">
       
-      {/* --- フードセクション --- */}
       <section className="mb-6">
         <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-center mb-6 tracking-widest text-gray-500">
           {title}
@@ -52,7 +51,6 @@ const LunchMenu = ({ title }: { title: string }) => {
         </div>
       </section>
 
-      {/* --- ドリンクセクション --- */}
       <section className="bg-white border-t border-gray-100 pt-6">
         <div className="flex justify-between items-center mb-4 px-1">
           <h2 className="text-xs sm:text-sm font-serif tracking-widest text-gray-500 uppercase">たっぷりのランチドリンク</h2>

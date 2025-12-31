@@ -10,10 +10,8 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
   const days = ['日', '月', '火', '水', '木', '金', '土'];
   
   return (
-    // 全体を画面の高さ一杯（h-svh）に固定し、溢れた場合はスクロール可能に
     <div className={`flex flex-col ${reverse ? 'md:flex-row-reverse' : 'md:flex-row'} h-screen w-full bg-white overflow-hidden`}>
       
-      {/* 左側：画像セクション - スマホでは高さを抑える（30%程度） */}
       <div className="w-full h-[30vh] md:h-full md:flex-1 relative bg-gray-200">
         <img 
           src={imageUrl} 
@@ -22,15 +20,12 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
         />
       </div>
 
-      {/* 右側：コンテンツセクション - 内部をスクロール可能にしつつ、paddingを圧縮 */}
       <div className="w-full h-[70vh] md:h-full md:flex-1 flex flex-col justify-start md:justify-center items-center p-4 sm:p-6 md:p-10 bg-white overflow-y-auto">
         
-        {/* タイトル：余白を最小限に */}
         <h2 className="text-lg sm:text-2xl font-serif mb-3 md:mb-6 text-center text-gray-600 tracking-wide">
           {title}
         </h2>
         
-        {/* カレンダー本体：高さを抑える */}
         <div className="w-full max-w-sm border border-gray-100 rounded-xl overflow-hidden shadow-sm">
           <div className="grid grid-cols-7 bg-gray-50/50 border-b border-gray-100">
             {days.map((day) => (
@@ -55,7 +50,6 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
           </div>
         </div>
 
-        {/* 営業時間セクション */}
         <div className="mt-4 md:mt-8 text-center  text-justify">
           <p className="text-[6px] md:text-[9px] text-gray-400 tracking-[0.2em] uppercase">営業時間</p>
           <p className="text-[10px] md:text-[14px] font-serif text-gray-800 tracking-widest">ランチ 11:00 — 14:30</p>
