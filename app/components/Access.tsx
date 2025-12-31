@@ -17,7 +17,7 @@ const Access = () => {
         {/* Google Calendar 埋め込み */}
         <div className="flex-1 rounded-lg overflow-hidden shadow-md">
           <iframe 
-            src="https://calendar.google.com/calendar/embed?src=tmpishikawa123%40gmail.com&ctz=Asia%2FTokyo" 
+            src="https://calendar.google.com/calendar/embed?src=97793972239981982ec858fcbdfb3319799560c1d99f5d1783cea7e159e5baee%40group.calendar.google.com&ctz=Asia%2FTokyo" 
             className="w-full h-full border-0"
           ></iframe>
         </div>
