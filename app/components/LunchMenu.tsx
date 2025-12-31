@@ -1,3 +1,7 @@
+"use client"; // クライアントコンポーネントとして定義
+
+import { useState } from "react";
+
 /* eslint-disable @next/next/no-img-element */
 
 interface Item {
@@ -8,6 +12,9 @@ interface Item {
 }
 
 const LunchMenu = ({ title }: { title: string }) => {
+  // モーダル表示用の状態管理
+  const [selectedItem, setSelectedItem] = useState<Item | null>(null);
+
   const foodItems: Item[] = [
     { name: "ダンディーランチ", price: "¥2,900(¥3,190)", detail: "おもてなしにも記念日にもピッタリ", imageUrl: "/LunchMenu1.jpg" },
     { name: "花ランチ", price: "¥2,700(¥2,970)", detail: "不動の人気メニューです！", imageUrl: "/LunchMenu2.jpg" },
@@ -19,14 +26,14 @@ const LunchMenu = ({ title }: { title: string }) => {
 
   const drinkItems: Item[] = [
     { name: "自家焙煎コーヒー(ｱｲｽ&ﾎｯﾄ)", detail: "", imageUrl: "/drink1.jpg" },
-    { name: "紅茶(ｱｲｽ&ﾎｯﾄ)", detail: "", imageUrl: "/drink2.jpg" },
-    { name: "ジンジャエール", detail: "", imageUrl: "/drink3.jpg" },
-    { name: "オレンジジュース", detail: "", imageUrl: "/drink4.jpg" },
+    { name: "紅茶(ｱｲｽ&ﾎｯﾄ)", detail: "", imageUrl: "/drink2.png" },
+    { name: "ジンジャエール", detail: "", imageUrl: "/drink3.png" },
+    { name: "オレンジジュース", detail: "", imageUrl: "/drink4.png" },
     { name: "自家製ドリンク", detail: "", imageUrl: "/drink5.jpg" },
   ];
 
   return (
-    <div className="w-full mx-auto h-screen flex flex-col justify-center px-4 py-2 font-sans text-gray-800 bg-white overflow-hidden">
+    <div className="w-full mx-auto min-h-screen flex flex-col justify-center px-4 py-2 font-sans text-gray-800 bg-white">
       
       <section className="mb-6">
         <h2 className="text-lg sm:text-xl md:text-2xl font-serif text-center mb-6 tracking-widest text-gray-500">
@@ -35,16 +42,20 @@ const LunchMenu = ({ title }: { title: string }) => {
         
         <div className="grid grid-cols-2 sm:grid-cols-3 gap-3 sm:gap-4">
           {foodItems.map((item, i) => (
-            <div key={i} className="flex flex-col bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden">
-                <div className="relative h-20 sm:h-24 w-full bg-gray-50">
+            <div 
+              key={i} 
+              className="flex flex-col bg-white rounded-lg border border-gray-100 shadow-sm overflow-hidden cursor-pointer hover:opacity-90 transition"
+              onClick={() => setSelectedItem(item)} // クリックでモーダル表示
+            >
+              <div className="relative h-32 sm:h-24 w-full bg-gray-50">
                 <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
-                </div>
+              </div>
               <div className="p-2">
                 <div className="flex justify-between items-center mb-1">
-                  <h3 className="font-bold text-[11px] sm:text-xs truncate text-gray-800">{item.name}</h3>
-                  <span className="text-gray-600 text-[10px] sm:text-[11px] font-serif">{item.price}</span>
+                  <h3 className="font-bold text-[7px] sm:text-xs truncate text-gray-800">{item.name}</h3>
+                  <span className="text-gray-600 text-[7px] sm:text-[11px] font-serif">{item.price}</span>
                 </div>
-                <p className="text-[10px] text-gray-400 leading-tight line-clamp-1">{item.detail}</p>
+                <p className="text-[7px] sm:text-[10px] text-gray-400 leading-tight line-clamp-1">{item.detail}</p>
               </div>
             </div>
           ))}
@@ -61,8 +72,12 @@ const LunchMenu = ({ title }: { title: string }) => {
 
         <div className="grid grid-cols-5 gap-2">
           {drinkItems.map((item, i) => (
-            <div key={i} className="flex flex-col items-center text-center group">
-              <div className="relative h-12 w-12 sm:h-14 sm:h-14 overflow-hidden rounded-full mb-2 border border-gray-100 shadow-sm">
+            <div 
+              key={i} 
+              className="flex flex-col items-center text-center group cursor-pointer"
+              onClick={() => setSelectedItem(item)} // ドリンクも拡大可能に
+            >
+              <div className="relative h-12 w-12 sm:h-14 overflow-hidden rounded-full mb-2 border border-gray-100 shadow-sm transition group-hover:scale-105">
                 <img src={item.imageUrl} alt={item.name} className="w-full h-full object-cover" />
               </div>
               <h3 className="text-[9px] sm:text-[10px] font-medium text-gray-700 leading-tight h-6 flex items-center">{item.name}</h3>
@@ -71,6 +86,33 @@ const LunchMenu = ({ title }: { title: string }) => {
         </div>
       </section>
 
+      {/* --- モーダル部分 --- */}
+      {selectedItem && (
+        <div 
+          className="fixed inset-0 z-50 flex items-center justify-center bg-black/80 p-4"
+          onClick={() => setSelectedItem(null)} // 背景クリックで閉じる
+        >
+          <div className="relative max-w-lg w-full bg-white rounded-2xl overflow-hidden shadow-2xl animate-in zoom-in duration-200" onClick={(e) => e.stopPropagation()}>
+            {/* 閉じるボタン */}
+            <button 
+              className="absolute top-3 right-3 z-10 bg-white/80 rounded-full w-8 h-8 flex items-center justify-center text-xl font-bold"
+              onClick={() => setSelectedItem(null)}
+            >
+              ×
+            </button>
+            
+            <img src={selectedItem.imageUrl} alt={selectedItem.name} className="w-full h-64 sm:h-80 object-cover" />
+            
+            <div className="p-6">
+              <div className="flex justify-between items-end mb-2">
+                <h3 className="text-xl font-bold text-gray-800">{selectedItem.name}</h3>
+                <span className="text-lg text-gray-600 font-serif">{selectedItem.price}</span>
+              </div>
+              <p className="text-gray-500 text-sm leading-relaxed">{selectedItem.detail}</p>
+            </div>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
