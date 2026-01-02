@@ -27,8 +27,8 @@ const LunchMenu = ({ title }: { title: string }) => {
   const drinkItems: Item[] = [
     { name: "自家焙煎コーヒー(ｱｲｽ&ﾎｯﾄ)", detail: "", imageUrl: "/drink1.jpg" },
     { name: "紅茶(ｱｲｽ&ﾎｯﾄ)", detail: "", imageUrl: "/drink2.png" },
-    { name: "ジンジャエール", detail: "", imageUrl: "/drink3.png" },
-    { name: "オレンジジュース", detail: "", imageUrl: "/drink4.png" },
+    { name: "ジンジャエール", detail: "", imageUrl: "/drink3.jpg" },
+    { name: "コーラ", detail: "", imageUrl: "/drink4.png" },
     { name: "自家製ドリンク", detail: "", imageUrl: "/drink5.jpg" },
   ];
 
