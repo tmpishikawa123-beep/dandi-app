@@ -68,7 +68,7 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
             <a href="tel:0285-70-6124" className="block text-[11px] font-serif text-gray-800 hover:opacity-70 transition-opacity">
               Tel: 0285-70-6124
             </a>
-            <p className="text-[12px] text-gray-500">Email: dandi@gmail.com</p>
+            <p className="text-[12px] text-gray-500">Email: damdi@gmail.com</p>
           </div>
 
           <div className="space-y-0.5 opacity-60">
