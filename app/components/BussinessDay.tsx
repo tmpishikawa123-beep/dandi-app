@@ -29,7 +29,7 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
         <div className="w-full max-w-sm border border-gray-100 rounded-xl overflow-hidden shadow-sm">
           <div className="grid grid-cols-7 bg-gray-50/50 border-b border-gray-100">
             {days.map((day) => (
-              <div key={day} className="py-1.5 md:py-2.5 text-center text-[12px] sm:text-[16px] font-bold text-gray-400 uppercase tracking-tighter">
+              <div key={day} className="py-1.5 sm:py-2.0 text-center text-[12px] sm:text-[14px] font-bold text-gray-400 uppercase tracking-tighter">
                 {day}
               </div>
             ))}
@@ -42,7 +42,7 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
                   i === 0 ? 'bg-red-50/20' : i === 6 ? 'bg-blue-50/20' : ''
                 }`}
               >
-                <span className={`text-[14px] font-bold font-medium ${i === 2 ? 'text-gray-300' : 'text-gray-600'}`}>
+                <span className={`text-[12px] sm:text-[14px] font-bold font-medium ${i === 2 ? 'text-gray-300' : 'text-gray-600'}`}>
                   {i !== 2 ? "○" : "×"}
                 </span>
               </div>
@@ -68,7 +68,7 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
             <a href="tel:0285-70-6124" className="block text-[11px] font-serif text-gray-800 hover:opacity-70 transition-opacity">
               Tel: 0285-70-6124
             </a>
-            <p className="text-[12px] text-gray-500">Email: damdi@gmail.com</p>
+            <p className="text-[12px] text-gray-500">Email: damdi0413@gmail.com</p>
           </div>
 
           <div className="space-y-0.5 opacity-60">
