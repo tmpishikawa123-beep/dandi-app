@@ -4,6 +4,7 @@ const nextConfig: NextConfig = {
   basePath:"",
   output: 'export', 
   reactStrictMode: true,
+  turbopack: {},
   webpack: (config, { isServer }) => {
     if (isServer) {
       config.watchOptions = {
