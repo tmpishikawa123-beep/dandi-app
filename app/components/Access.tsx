@@ -18,7 +18,7 @@ const Access = () => {
         <div className="flex-1 rounded-lg overflow-hidden shadow-md">
           <iframe 
             src="https://calendar.google.com/calendar/embed?src=8130aad60c835c7476f382b04da4a60213483433df75d93413a3c2a7643e4c29%40group.calendar.google.com&ctz=Asia%2FTokyo" 
-            className="w-full h-full border-0"
+            className="w-full h-full border-0 color=%23f4511e"
           ></iframe>
         </div>
       </div>
