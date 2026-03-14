@@ -51,10 +51,10 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
         </div>
 
         <div className="mt-4 md:mt-8 text-center  text-justify">
-          <p className="text-[14px] md:text-[15px] text-gray-400 tracking-[0.2em] uppercase">営業時間</p>
+          <p className="text-[14px] md:text-[15px] text-gray-800 tracking-[0.2em] uppercase">営業時間</p>
           <p className="text-[16px] md:text-[20px] font-serif text-gray-800 tracking-widest">ランチ 11:00 — 14:30</p>
           <p className="text-[16px] md:text-[20px] font-serif text-gray-800 tracking-widest">カフェ 14:00 — 16:00(土、日、祝のみ)</p>
-          <p className="text-[14px] md:text-[16px] font-serif text-gray-400 tracking-widest">ラストオーダー 15:30</p>
+          <p className="text-[14px] md:text-[16px] font-serif text-gray-800 tracking-widest">ラストオーダー 15:30</p>
         </div>
 
         <div className="mt-4 pt-4 md:mt-8 md:pt-8 border-t border-gray-100 w-full max-w-sm text-center ">
@@ -72,8 +72,8 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
           </div>
 
           <div className="space-y-0.5 opacity-60">
-            <p className="text-[9px] text-gray-400">※無断キャンセルはご遠慮ください</p>
-            <p className="text-[9px] text-gray-400">※貸切の場合は、前払いをお願いしています</p>
+            <p className="text-[9px] text-gray-800">※無断キャンセルはご遠慮ください</p>
+            <p className="text-[9px] text-gray-800">※貸切の場合は、前払いをお願いしています</p>
           </div>
         </div>
         

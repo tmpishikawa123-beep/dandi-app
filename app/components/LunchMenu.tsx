@@ -55,7 +55,7 @@ const LunchMenu = ({ title }: { title: string }) => {
                   <h3 className="font-bold text-[8px] sm:text-xs truncate text-gray-800">{item.name}</h3>
                   <span className="text-gray-600 text-[6px] sm:text-[11px] font-serif">{item.price}</span>
                 </div>
-                <p className="text-[8px] sm:text-[13px] text-gray-400 leading-tight line-clamp-1">{item.detail}</p>
+                <p className="text-[8px] sm:text-[13px] text-gray-700 leading-tight line-clamp-1">{item.detail}</p>
               </div>
             </div>
           ))}
@@ -64,7 +64,7 @@ const LunchMenu = ({ title }: { title: string }) => {
 
       <section className="bg-white border-t border-gray-100 pt-6">
         <div className="flex justify-between items-center mb-4 px-1">
-          <h2 className="text-xs sm:text-sm font-serif tracking-widest text-gray-500 uppercase">たっぷりのランチドリンク</h2>
+          <h2 className="text-xs sm:text-sm font-serif tracking-widest text-gray-800 uppercase">たっぷりのランチドリンク</h2>
           <p className="text-[10px] sm:text-xs font-medium text-gray-600">
              <span className="text-red-600 font-bold ml-1">¥330〜¥440にて、別途注文</span>
           </p>
