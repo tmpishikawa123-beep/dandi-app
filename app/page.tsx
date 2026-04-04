@@ -22,7 +22,7 @@ export default function Home() {
 
       {/* 料理の写真とコンセプト */}
       <section className="snap-start h-screen">
-        <LunchMenu title="ランチメニュー" />
+        <LunchMenu title="ランチメニュー(コース料理)" />
       </section>
 
       {/* 営業日 */}
