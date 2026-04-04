@@ -16,12 +16,12 @@ const LunchMenu = ({ title }: { title: string }) => {
   const [selectedItem, setSelectedItem] = useState<Item | null>(null);
 
   const foodItems: Item[] = [
-    { name: "ダンディーランチ", price: "¥2,900(¥3,190)", detail: "おもてなしにも記念日にもピッタリ", imageUrl: "/LunchMenu1.jpg" },
-    { name: "花ランチ", price: "¥2,700(¥2,970)", detail: "不動の人気メニューです！", imageUrl: "/LunchMenu2.jpg" },
-    { name: "ポークジンジャーランチ", price: "¥2,300(¥2,530)", detail: "病みつきになるメニューです！", imageUrl: "/LunchMenu3.jpg" },
-    { name: "和風ハンバーグランチ", price: "¥2,350(¥2,585)", detail: "山盛りの大根は、鬼おろししてます！", imageUrl: "/LunchMenu4.jpg" },
-    { name: "ローストチキンランチ", price: "¥2,400(¥2,640)", detail: "", imageUrl: "/LunchMenu5.jpg" },
-    { name: "ポークステーキランチ", price: "¥2,300(¥2,530)", detail: "", imageUrl: "/LunchMenu6.jpg" },
+    { name: "ダンディーランチ", price: "¥3,000(¥3,300)", detail: "おもてなしにも記念日にもピッタリ", imageUrl: "/LunchMenu1.jpg" },
+    { name: "花ランチ", price: "¥2,850(¥3,135)", detail: "不動の人気メニューです！", imageUrl: "/LunchMenu2.jpg" },
+    { name: "ポークジンジャーランチ", price: "¥2,450(¥2,695)", detail: "病みつきになるメニューです！", imageUrl: "/LunchMenu3.jpg" },
+    { name: "和風ハンバーグランチ", price: "¥2,450(¥2,695)", detail: "山盛りの大根は、鬼おろししてます！", imageUrl: "/LunchMenu4.jpg" },
+    { name: "ローストチキンランチ", price: "¥2,550(¥2,805)", detail: "", imageUrl: "/LunchMenu5.jpg" },
+    { name: "ポークステーキランチ", price: "¥2,450(¥2,695)", detail: "", imageUrl: "/LunchMenu6.jpg" },
   ];
 
   const drinkItems: Item[] = [
