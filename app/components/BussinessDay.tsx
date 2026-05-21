@@ -42,8 +42,8 @@ const BussinessDay = ({ title, imageUrl, reverse = false }: BussinessDayProps) =
                   i === 0 ? 'bg-red-50/20' : i === 6 ? 'bg-blue-50/20' : ''
                 }`}
               >
-                <span className={`text-[12px] sm:text-[14px] font-bold font-medium ${i === 2 ? 'text-gray-300' : 'text-gray-600'}`}>
-                  {i !== 2 ? "○" : "×"}
+                <span className={`text-[12px] sm:text-[14px] font-bold font-medium ${i === 2 || i === 3 ?  'text-gray-600':'text-gray-300' }`}>
+                  {i === 2 || i === 3 ? "×" : "○"}
                 </span>
               </div>
             ))}
